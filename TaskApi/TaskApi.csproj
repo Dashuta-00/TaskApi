@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.2.0" />
+      <PackageReference Include="Mapster" Version="10.0.13" />
+      <PackageReference Include="MassTransit" Version="8.5.11" />
+      <PackageReference Include="MassTransit.RabbitMQ" Version="8.5.11" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.21" />
+      <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Contracts\CompleteTaskStatus.cs">
+        <DependentUpon>CompleteTaskResult.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Contracts\DeleteTaskStatus.cs">
+        <DependentUpon>DeleteTaskResult.cs</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
+    </ItemGroup>
+
+</Project>
